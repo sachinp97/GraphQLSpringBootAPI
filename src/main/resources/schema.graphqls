@@ -1,0 +1,22 @@
+type Order {
+    id: ID!
+    customerId: Int!
+    items: [Item]!
+    dueDate: String!
+}
+
+type Item {
+    id: ID!
+    productName: String!
+    quantity: Int!
+}
+
+# The Root Query for the application
+type Query {
+    ordersByCustomer(customerId: Int): [Order]!
+}
+
+# The Root Mutation for the application
+type Mutation {
+    writeOrder(customerId: Int!, due_date: String!) : Order!
+}
